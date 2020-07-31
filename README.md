@@ -2,6 +2,7 @@
 ios cheat sheet
 
 ### Last updated XCode 11.6 Swift 5.1 
+
 #### Timer
 ```
    func timerrfun(){
@@ -22,3 +23,39 @@ ios cheat sheet
     }
     
 ```
+
+#### Delay Items
+```
+ DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+   // do your work after 10 seconds.
+ }
+```
+
+
+#### PlaySound
+```
+import AVFoundation
+class ViewController: UIViewController {
+ var player: AVAudioPlayer!
+ @IBAction func keyClicked(_ sender: UIButton) {
+     playSound(soundName: sender.currentTitle!) 
+     //or playSound(soundName: "sound_name") 
+ }
+
+ func playSound(soundName:String) {
+    let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
+    player = try! AVAudioPlayer(contentsOf: url!)
+    player.play()
+  }
+}
+
+ //it will not work if your phone is in silent state..so for that you have to see more code on stackoverflow
+ 
+```
+
+
+
+#### temp
+```
+```
+
