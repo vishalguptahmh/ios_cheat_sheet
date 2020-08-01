@@ -52,6 +52,29 @@ class ViewController: UIViewController {
  //it will not work if your phone is in silent state..so for that you have to see more code on stackoverflow
  
 ```
+#### Go to Next Screen Modally
+Screen 1 -> screen 2
+
+<img src="https://github.com/vishalguptahmh/ios_cheat_sheet/blob/master/Screenshot%202020-08-01%20at%205.26.51%20PM.png" width="350">
+```
+    func goToNextScreenModally() {
+        self.performSegue(withIdentifier: "goToResult", sender: self)
+    }
+    
+    // this will send data to screen2 viewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier=="goToResult"){
+            let destination=segue.destination as! screen2
+            destination.bmi = String(format: "%.2f", bmi)
+        }
+    }
+
+```
+screen2 -> screen1
+```
+ self.dismiss(animated: true, completion: nil)
+
+```
 
 
 
