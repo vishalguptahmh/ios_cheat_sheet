@@ -77,7 +77,26 @@ screen2 -> screen1
  self.dismiss(animated: true, completion: nil)
 
 ```
+#### UiTextField or editable textfield
 
+```
+class ViewController: UIViewController ,UITextFieldDelegate{
+
+    @IBOutlet weak var mTextField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        mTextField.delegate=self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        mTextField.endEditing(true)
+        print(textField.text ?? "")
+        return true; 
+    }
+}
+
+```
 
 
 #### temp
