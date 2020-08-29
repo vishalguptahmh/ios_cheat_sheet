@@ -103,6 +103,16 @@ class ViewController: UIViewController ,UITextFieldDelegate{
 print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
 
 ```
+#### Different type of data storage 
+
+| Method  | Use |
+| ------------- | ------------- |
+| UserDefaults  | small bits of data e.g. nickname, music on/off  |
+| Codable  | Flash freeze custom objects  |
+| Keychain  | small bits of data securely like username and passwords  |
+| SQLite  | Perisist large amount of data and query it  |
+| Code Data | Object oriented datbase  |
+| Realm  | A faster and easier Object oriented datbase solution |
 
 #### sharedPreference like UserDefaults.standard
 ```swift
@@ -118,7 +128,53 @@ print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, t
  self.db.set(self.items, forKey: self.itemsNameInSharedPref)
                 
 ```
-#### temp
+
+#### Codeable
+```swift
+class TodoItem  : Codable{
+    var title : String = ""
+    var done : Bool = false;
+    
+    init(_ title :String , _ done : Bool) {
+        self.title=title
+        self.done=done
+    }
+}
+
+
+
+class ViewController: UITableViewController {
+    var items:[TodoItem] = [TodoItem]();
+    let datafilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+    
+    //MARK: - Add data to database
+    func addValueTodb(){
+        let encoder = PropertyListEncoder()
+        do{
+            let data = try encoder.encode(self.items)
+            try data.write(to: datafilePath!)
+        }
+        catch{
+            print("error occurs : \(error)")
+        }
+    }
+    
+    //MARK: - get data from database
+    func loadItemsFromdb() {
+        if let data =  try? Data(contentsOf: datafilePath!){
+            do {
+                let decoder = PropertyListDecoder()
+                items = try decoder.decode([TodoItem].self, from: data)
+            } catch  {
+                print("\(error)")
+            }
+        }
+    }
+}
+
+
 ```
+#### temp
+```swift
 ```
 
