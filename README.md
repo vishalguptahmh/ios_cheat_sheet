@@ -97,8 +97,12 @@ class ViewController: UIViewController ,UITextFieldDelegate{
 }
 
 ```
+ 
+#### location of NSDefaults where your data is saved
+```
+print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
 
-
+```
 #### temp
 ```
 ```
