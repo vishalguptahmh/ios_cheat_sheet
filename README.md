@@ -235,7 +235,16 @@ class ViewController: UITableViewController {
 ```
 >Now Add entities and attributes your `datamodel file`
 
+#### Pretty log
+```js
+<script src="https://gist.github.com/vishalguptahmh/b998c59216e1c8189dd58edc8246cc77.js"></script>
+```
+source : https://gist.github.com/vishalguptahmh/b998c59216e1c8189dd58edc8246cc77
+
+
 #### temp
 ```swift
 ```
+
+
 
