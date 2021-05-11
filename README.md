@@ -242,6 +242,33 @@ class ViewController: UITableViewController {
 source : https://gist.github.com/vishalguptahmh/b998c59216e1c8189dd58edc8246cc77
 
 
+
+#### Launch screen doesnot reflect back after changing images
+ios cache storeyboard images so it will not reflect but we can delete it
+
+swift
+```swift
+do {
+   try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Library/SplashBoard")
+} catch {
+   print("Failed to delete launch screen cache: \(error)")
+}
+
+```
+objc
+
+```objc
+@try {
+   NSLog(@"%@",[[NSFileManager defaultManager] subpathsAtPath:NSHomeDirectory()]);
+   NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"/Library/SplashBoard"];
+   NSLog(@"delete launch screen cache %@ , path : %@",NSHomeDirectory(),path);      
+   [[NSFileManager defaultManager] removeItemAtPath:(path) error:(NULL)];
+}
+@catch (NSException *exception) {
+    NSLog(@"Failed to delete launch screen cache: %@",exception);
+}
+```
+
 #### temp
 ```swift
 ```
