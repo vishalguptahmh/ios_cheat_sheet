@@ -269,6 +269,16 @@ objc
 }
 ```
 
+#### delete any file from NSHomeDirectory
+```obj
+po [[NSFileManager defaultManager] removeItemAtPath:([NSHomeDirectory() stringByAppendingString:@"/temp/Logs"]) error: (NULL)] 
+
+``
+#### Display directory details
+```obj
+po [[NSFileManager defaultManager] subpathsAtPath:NSHomeDirectory()]
+```
+
 #### temp
 ```swift
 ```
