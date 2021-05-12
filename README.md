@@ -273,7 +273,8 @@ objc
 ```obj
 po [[NSFileManager defaultManager] removeItemAtPath:([NSHomeDirectory() stringByAppendingString:@"/temp/Logs"]) error: (NULL)] 
 
-``
+```
+
 #### Display directory details
 ```obj
 po [[NSFileManager defaultManager] subpathsAtPath:NSHomeDirectory()]
