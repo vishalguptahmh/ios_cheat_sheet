@@ -287,6 +287,43 @@ NSLog(@"(%@ %@) %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd)
 print(__FUNCTION__) // Swift
 ```
 
+# Debugging
+
+1) break points
+2) conventional breakpoints
+3) lldb 
+   - po = will print object and execute live
+   - p =  will do the same as po
+   -  v = it will not execute but it will show data on bases of stacktrace . 
+   `po emp.name` will not give name but `v emp.name` will give us data
+   ```swift
+   var emp:Employee=Sales();
+   protocol Employee{
+   }
+   class Sales : employee{
+      var name;
+   }
+   ```
+   
+4) Dig into container : you can check db , storyboard data
+   -  for simulators -> you can download tool simsim 
+      finder> debugging > Library > Cache > abc.db
+   -  For actual device -> windows > devices and simulator > go to your device > Installed Apps have setting button > download contatiner > (It will be downloaded as abc.xcappdata)> show package contents >App Data > Library> cache > db
+   
+5) To debugg issue which happen in release mode only and will not work on simulators : use log file 
+   
+   ```
+   func createLogFile(){
+      if let documentDirectory = NSSearchPathForDirectoriesInDomain(.documentaryDirectory,.userDomainMask,true).first{
+         let fileName = (documentsDirectory as NSString).appendingPathComponent(filename)
+         freopen(logFilePath.cString(using:String.Encoding.ascii)!,"a+",stderr)
+      }
+   }
+   ```
+6)UI related issues : View heriarcy
+   - by clicking rectangle icon in debugg area below of xcode
+
+
 #### temp
 ```swift
 ```
