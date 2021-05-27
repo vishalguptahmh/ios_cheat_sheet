@@ -326,7 +326,17 @@ print(__FUNCTION__) // Swift
 
 #### temp
 ```swift
+
 ```
+for documentation;
+option +cmd+/
+
+for easy look in minmap
+hold cmd key and to jump to it
+
+
+format code
+select code +ctrl+i
 
 
 
