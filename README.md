@@ -280,6 +280,13 @@ po [[NSFileManager defaultManager] removeItemAtPath:([NSHomeDirectory() stringBy
 po [[NSFileManager defaultManager] subpathsAtPath:NSHomeDirectory()]
 ```
 
+#### Log with file and function name
+you can directly put in code snipt : Editor > create code snipt
+```
+NSLog(@"(%@ %@) %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd),<#variable#>);// obj 
+print(__FUNCTION__) // Swift
+```
+
 #### temp
 ```swift
 ```
