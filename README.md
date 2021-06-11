@@ -3,6 +3,50 @@ ios cheat sheet
 
 ### Last updated XCode 11.6 Swift 5.1 
 
+### xcode cheats
+- show buld time in xcode 
+   * open terminal and type `defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES`
+- easy documentation
+   * put your cursor on function and press `command + option + /`
+- spelling check while typing
+   * go to edit > Format > Spelling and Grammer > Check spelling while typing
+- resolving multiple error at same time
+   * Editor > Fix All Issues
+- open xcode and simulator in same screen
+   * select simulator > Window > Tile Window to right of screen
+- if you have lots of code and want to see as interface
+   * type `control + command + up`
+- Reindenting code
+   * select the code then press `control +I`
+- shift your code to right or left
+   * `cmd+]` or `cmd+[`
+- Quickly open any file
+   * `cmd+shit+o'
+- Jump to function in file
+   * `ctrl+6' then type name of function
+- search globally
+   * `cmd+shift+f`
+- switch to main project from search
+   * `cmd+1`
+- Rename variable in a file at same time
+   * `cmd + ctrl + E`
+- edit mulitple line from keyboard
+   * hold `cmd + option + E` then select lines you want to edit
+- edit mulitple line from mouse
+   * hold `ctrl+shift` then select lines you want to edit
+- opening multiple file in same window
+   * `cmd + ctrl + T` will open on right , `cmd + option + ctrl + T` will open on below , and to switch to different screens use `cmd + J`
+- if you have opened multiple screens and want to toggle in full screen one of them
+   * select screen then `shit + contrl + cmd + enter`
+
+
+
+### simulator
+- landscape to portait : `cmd+right`
+- change size : `cmd +3`
+- toggle keyyboard : `cmd+k`
+
+
 #### Timer
 ```swift
    func timerrfun(){
