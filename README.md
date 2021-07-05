@@ -368,19 +368,30 @@ print(__FUNCTION__) // Swift
    - by clicking rectangle icon in debugg area below of xcode
 
 
+
+## Reading MobileProvision profile data
+type commands in terminal
+
+OUTPUT : 200V0K000K.app.identitifier
+
+```bash 
+ /usr/libexec/PlistBuddy -c 'Print :Entitlements:application-identifier' /dev/stdin <<< $(security cms -D -i abcdef.mobileprovision) 
+```
+OUTPUT :Name AdHoc Distribution
+```bash
+ /usr/libexec/PlistBuddy -c 'Print :Name' /dev/stdin <<< $(security cms -D -i abcdef.mobileprovision)
+```
+OUTPUT : fff-sds-d3-3-d-c-d-e-ewewew
+```bash
+/usr/libexec/PlistBuddy -c 'Print :UUID' /dev/stdin <<< $(security cms -D -i abcdef.mobileprovision)   
+```
+ 
+    
+
 #### temp
 ```swift
 
 ```
-for documentation;
-option +cmd+/
-
-for easy look in minmap
-hold cmd key and to jump to it
-
-
-format code
-select code +ctrl+i
 
 
 
