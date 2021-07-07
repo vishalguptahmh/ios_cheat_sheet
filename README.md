@@ -46,6 +46,8 @@ ios cheat sheet
 - change size : `cmd +3`
 - toggle keyyboard : `cmd+k`
 
+## sublime
+- cmd+D : select multiple selected values
 
 #### Timer
 ```swift
