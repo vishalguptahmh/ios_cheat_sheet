@@ -389,7 +389,7 @@ OUTPUT : fff-sds-d3-3-d-c-d-e-ewewew
 ```
  
     
-
+https://vishalguptahmh.github.io/ios_cheat_sheet/ for initial setup of laptop
 #### temp
 ```swift
 
