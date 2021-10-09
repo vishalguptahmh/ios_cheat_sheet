@@ -39,7 +39,8 @@ ios cheat sheet
 - if you have opened multiple screens and want to toggle in full screen one of them
    * select screen then `shit + contrl + cmd + enter`
 
-
+- Create Image Literal for xcode 13
+ * create code snipt > and paste this > #imageLiteral(
 
 ### simulator
 - landscape to portait : `cmd+right`
