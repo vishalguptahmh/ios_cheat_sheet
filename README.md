@@ -50,6 +50,14 @@ ios cheat sheet
 ## sublime
 - cmd+D : select multiple selected values
 
+#### hide keyboard
+after pressing button add text
+```swift
+@IBAction func search(_sender : UiButton){
+  searchField.EndEditing(true)
+  print(searchField.text!)
+}
+```
 #### Timer
 ```swift
    func timerrfun(){
