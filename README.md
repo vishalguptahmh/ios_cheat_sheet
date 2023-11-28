@@ -399,10 +399,104 @@ OUTPUT : fff-sds-d3-3-d-c-d-e-ewewew
  
     
 https://vishalguptahmh.github.io/ios_cheat_sheet/ for initial setup of laptop
-#### temp
-```swift
+
+
+## cronjob in mac
+it will help you to auto-run tasks which are daily basis
+
+first we will create python script which will hit request and send notification to our mac system.
+
+```python
+#!/Library/Frameworks/Python.framework/Versions/3.8/bin/python3.8
+import sys
+sys.path.append("/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages")
+import requests
+import subprocess
+import datetime
+
+
+# Define the API endpoint URL
+url = "https://jsonplaceholder.typicode.com/todos/1"
+
+# Define your Basic Authentication credentials
+# username = "vishalguptahmh@test.com"
+# password = "11223344556677"
+
+
+# # Define the form data payload
+# payload = {
+#     "OWNER": "vishalguptahmh@test.com",
+#     "ENV_NAME": "DEV",
+#     "STATE": "Running"
+# }
+
+# # Set the headers
+# headers = {
+#     "Authorization": "Basic dmlza*****************************",
+#     "User-Agent": "PostmanRuntime/7.32.3",
+#     "Accept": "*/*",
+#     "Cache-Control": "no-cache",
+#     "Host": "my.site.com",
+#     "Accept-Encoding": "gzip, deflate, br",
+#     "Connection": "keep-alive",
+# }
+
+# Make the POST request with multipart form-data
+response = requests.post(url, data=payload, headers=headers, verify=False)
+
+# Check the response
+if response.status_code == 201:
+    notification_command = 'display notification "Success API script executed" with title "API Script"'
+    with open("/Users/vishal.gupta/Documents/api_log.txt", "a") as log_file:
+        log_file.write(f"{datetime.datetime.now()}: Request succeeded\n")
+    
+else:
+    notification_command = 'display notification "Failure API script executed" with title "API Script"'
+    with open("/Users/vishal.gupta/Documents/api_log.txt", "a") as log_file:
+        log_file.write(f"{datetime.datetime.now()}: Request failed with status code {response.status_code}\n")
+    # print(f"Request failed with status code {response.status_code}")
+    # print(response.text)  # Print the error response content if needed
+
+
+subprocess.run(["osascript", "-e", notification_command])
 
 ```
+
+#### for testing script you can run
+```bash
+python script.py
+```
+now our script is working
+
+#### lets setup cron job
+
+- Give cron to full disk access
+- Schedule Using Cron: On macOS, you can use the built-in cron service to schedule tasks. Open a Terminal window and edit the crontab configuration using the following command:
+
+```bash
+crontab -e
+```
+this command will open terminal where you can add as many as cronjobs
+
+Schedule the Script: Add an entry to schedule your script to run at 9 AM every day. The format for scheduling a daily task at 9 AM is:
+
+```bash
+ 0 9 * * * /usr/bin/python3 /path/to/api_request.py
+```
+Verify the Schedule: To verify that your task is scheduled correctly, you can list your current crontab entries using:
+```bash
+ crontab -l
+```
+You should see your scheduled task listed.
+
+#### TESTING
+this below command wil run after 1 min and save logs
+```
+ */1 * * * *  /usr/bin/python3 /Users/vishal.gupta/Documents/testnotification.py  >/tmp/stdout.log 2>>/tmp/api_log.log
+```
+
+ Monitor Execution: The script will run automatically at 9 AM every day, and the results will be logged to api_log.txt (you can change this file name as needed). You can monitor this log file to check the execution status.
+That's it! Your API request will now be executed daily at 9 AM on your Mac system using the cron scheduler.
 
 
 
